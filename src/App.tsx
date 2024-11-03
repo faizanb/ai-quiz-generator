@@ -2,6 +2,7 @@ import OpenAI from "openai";
 
 import Header from './components/Header';
 import Quiz from './components/Quiz';
+import DUMMY_RESPONSE_JSON from './components/response.json';
 
 import './App.css';
 import { useEffect, useState } from "react";
@@ -23,7 +24,7 @@ const generateQuiz = async (tech: string): Promise<string | null> => {
         "content": [
           {
             "type": "text",
-            "text": `Generate 10 multiple choice questions on ${tech}. Should contain both theory and output based questions. Difficulty levels should be 3 easy, 4 medium and 3 difficult questions. should return answer as well in the final JSON`
+            "text": `Generate 10 multiple choice questions on ${tech}. Should contain both theory and output based questions. Should have 3 easy, 4 medium and 3 difficult questions. Should return JSON array of objects with each object having question, options, difficulty, answer_index and is_code_block. answer_index should be index from options array. code_block should be a separate key with line breaks if is_code_block is true.`
           }
         ]
       },
@@ -34,7 +35,7 @@ const generateQuiz = async (tech: string): Promise<string | null> => {
     frequency_penalty: 0,
     presence_penalty: 0,
     response_format: {
-      "type": "text"
+      "type": "json_object"
     },
   });
 
@@ -42,9 +43,8 @@ const generateQuiz = async (tech: string): Promise<string | null> => {
 };
 
 function App() {
-
   const [tech, setTech] = useState('React');
-  const [quizData, setQuizData] = useState<any>(null);
+  const [quizData, setQuizData] = useState<any>(DUMMY_RESPONSE_JSON);
 
   useEffect(() => {
     const generateAndSetQuiz = async () => {
@@ -53,19 +53,22 @@ function App() {
         if (!response) {
           throw new Error("Failed to generate message.");
         }
-        setQuizData(response);
+        setQuizData(JSON.parse(response));
       }catch (error) {
         console.error(error);
       }
     }
 
-    generateAndSetQuiz();
+    //generateAndSetQuiz();
   }, []);
 
   return (
     <>
       <Header />
-      <Quiz quizData={quizData}/>
+      {quizData && 
+        <div id="quiz-wrap">
+          <Quiz quizData={quizData}/>
+      </div>}
     </>
   )
 }

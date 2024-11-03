@@ -1,0 +1,112 @@
+[
+    {
+        "question": "What is React primarily used for?",
+        "options": [
+            "Building mobile apps",
+            "Building desktop applications",
+            "Building user interfaces",
+            "Building database applications"
+        ],
+        "difficulty": "easy",
+        "answer_index": 2,
+        "is_code_block": false
+    },
+    {
+        "question": "Which of the following is a feature of React?",
+        "options": [
+            "Two-way data binding",
+            "Virtual DOM",
+            "Server-side scripting",
+            "Direct DOM manipulation"
+        ],
+        "difficulty": "easy",
+        "answer_index": 1,
+        "is_code_block": false
+    },
+    {
+        "question": "What is the default function of setState in React?",
+        "options": [
+            "It replaces the entire state object.",
+            "It updates the state asynchronously.",
+            "It only updates the state synchronously in class components.",
+            "It does not trigger a re-render."
+        ],
+        "difficulty": "easy",
+        "answer_index": 1,
+        "is_code_block": false
+    },
+    {
+        "question": "Which lifecycle method is called after a component is rendered?",
+        "options": [
+            "componentDidMount",
+            "componentWillMount",
+            "componentDidUpdate",
+            "render"
+        ],
+        "difficulty": "medium",
+        "answer_index": 0,
+        "is_code_block": false
+    },
+    {
+        "question": "What does the 'key' prop do in React lists?",
+        "options": [
+            "It is a unique identifier for list items.",
+            "It enhances the performance of components.",
+            "It acts as an event handler.",
+            "It prevents data loss during rendering."
+        ],
+        "difficulty": "medium",
+        "answer_index": 0,
+        "is_code_block": false
+    },
+    {
+        "question": "Which hook would you use to manage state in a functional component?",
+        "options": [
+            "useEffect",
+            "useContext",
+            "useState",
+            "useReducer"
+        ],
+        "difficulty": "medium",
+        "answer_index": 2,
+        "is_code_block": false
+    },
+    {
+        "question": "What will be the output of the following code?",
+        "options": [
+            "undefined",
+            "null",
+            "Hello World",
+            "Error: Cannot read property 'name' of undefined"
+        ],
+        "difficulty": "difficult",
+        "answer_index": 3,
+        "is_code_block": true,
+        "code_block": "const user = undefined;\nconsole.log(user.name);"
+    },
+    {
+        "question": "What does the useEffect hook do in React?",
+        "options": [
+            "It manages local component state.",
+            "It fetches data from APIs.",
+            "It runs side effects in function components.",
+            "It replaces props in function components."
+        ],
+        "difficulty": "difficult",
+        "answer_index": 2,
+        "is_code_block": false
+    },
+    {
+        "question": "Identify the output of the following React component:",
+        "options": [
+            "<p>Hello</p>",
+            "<p>World</p>",
+            "<p>Hello World</p>",
+            "Syntax Error"
+        ],
+        "difficulty": "difficult",
+        "answer_index": 2,
+        "is_code_block": true,
+        "code_block": "function Hello() {\n  return <div>Hello <span>World</span></div>;\n}\n\nReactDOM.render(<Hello />, document.getElementById('root'));"
+    }
+]

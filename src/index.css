@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #06e1e2;
+  background-color: #867bd6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
 
+#root {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 header {
@@ -42,4 +48,65 @@ header h1 {
   margin-left: 1rem;
   text-transform: uppercase;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+#quiz-wrap {
+  background-color: #fff;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+#question {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#question h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1.5rem 0;
+  color: #000;
+}
+
+.code-block {
+  margin-bottom: 1.5rem;
+}
+
+.code-block span {
+  text-align: left;
+}
+
+#options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.option {
+  width: 100%;
+}
+
+.option button {
+  display: inline-block;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 24px;
+  background: #ffe605b8;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.option button:hover,
+.option button:focus {
+  background: #9d5af5;
+  color: white;
 }
