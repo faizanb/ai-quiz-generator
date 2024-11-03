@@ -66,9 +66,9 @@ function App() {
     <>
       <Header />
       {quizData && 
-        <div id="quiz-wrap">
+        <main id="quiz-wrap">
           <Quiz quizData={quizData}/>
-      </div>}
+      </main>}
     </>
   )
 }

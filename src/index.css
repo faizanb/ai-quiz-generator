@@ -56,6 +56,25 @@ header h1 {
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  color: #000;
+}
+
+#question-progress {
+  width: 50%;
+  height: 0.5rem;
+  border-radius: 24px;
+  background: #9e5ef8;
+  margin: 0;
+}
+
+#question-progress::-webkit-progress-bar {
+  background: #6a558a;
+  border-radius: 24px;
+}
+
+#question-progress::-webkit-progress-value {
+  background: #9e5ef8;
+  border-radius: 24px;
 }
 
 #question {
@@ -67,7 +86,6 @@ header h1 {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0.5rem 0 1.5rem 0;
-  color: #000;
 }
 
 .code-block {
@@ -110,4 +128,16 @@ header h1 {
 .option button:focus {
   background: #9d5af5;
   color: white;
+}
+
+.option button.selected {
+  background: #f5a76c;
+}
+
+.option button.correct {
+  background: #5af59d;
+}
+
+.option button.wrong {
+  background: #f55a98;
 }
