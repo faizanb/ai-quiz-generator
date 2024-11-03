@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { CodeBlock, dracula } from 'react-code-blocks';
 
 const Quiz: React.FC<{quizData: any}> = (props) => {
-    const [userAnwers, setAnswers] = useState([]);
+    const [userAnwersIndex, setAnswersIndex] = useState<number[]>([]);
+    const activeQuesIndex = userAnwersIndex.length;
 
     const { quizData } = props;
 
-    //const activeQuesIndex = userAnwers.length;
-    const activeQuesIndex = 8;
+    const handleUserSelection = (answerIndex: number) => {
+        setAnswersIndex((prevAnswerIndex: number[]) => ([...prevAnswerIndex, answerIndex]));
+    }
 
     if(quizData) {
         const questionObj = quizData[activeQuesIndex];
         return (
             <div id='question'>
-                <h2>{`${userAnwers.length + 1}. ${questionObj.question}`}</h2>
+                <h2>{`${userAnwersIndex.length + 1}. ${questionObj.question}`}</h2>
                 {questionObj.is_code_block ? 
                     <div className='code-block'>
                         <CodeBlock 
@@ -28,7 +30,7 @@ const Quiz: React.FC<{quizData: any}> = (props) => {
                 <ul id='options'>
                     {questionObj.options.map((option: any) => (
                         <li key={option} className='option'>
-                            <button>{option}</button>
+                            <button onClick={() => handleUserSelection(questionObj.answer_index)}>{option}</button>
                         </li>
                     ))}
                 </ul>
