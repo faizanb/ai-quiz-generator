@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import Question from './Question';
+import Evaluation from './Evaluation';
 
 const Quiz: React.FC<{quizData: any}> = (props) => {
     const [userAnwersIndex, setAnswersIndex] = useState<number[]>([]);
@@ -19,9 +20,10 @@ const Quiz: React.FC<{quizData: any}> = (props) => {
 
     if(isQuizCompleted) {
         return (
-            <div id="quiz-evaluation">
-                <h2>Congrats, you have completed the quiz!</h2>
-            </div>
+            <Evaluation 
+                quizData={quizData}
+                userAnwersIndex={userAnwersIndex}
+            />
         );
     }
 

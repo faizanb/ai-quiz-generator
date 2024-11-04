@@ -51,7 +51,7 @@ header h1 {
 }
 
 #quiz-wrap {
-  background-color: #fff;
+  background-color: #f5f5e6;
   width: 80%;
   padding: 1rem;
   border-radius: 5px;
@@ -88,11 +88,11 @@ header h1 {
   margin: 0.5rem 0 1.5rem 0;
 }
 
-.code-block {
+#code-block {
   margin-bottom: 1.5rem;
 }
 
-.code-block span {
+#code-block span {
   text-align: left;
 }
 
@@ -134,18 +134,115 @@ header h1 {
 .option button:disabled {
   cursor: not-allowed;
   background: #ffe605b8;
-  color: #000;
+  color: #000000b3;
   opacity: 0.7;
 }
 
 .option button.selected {
-  background: #f5a76c;
+  background: #f58835;
 }
 
 .option button.correct {
-  background: #5af59d;
+  background: #21b05e;
 }
 
 .option button.wrong {
-  background: #f55a98;
+  background: #f93181;
+}
+
+#quiz-evaluation h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  color: #000;
+}
+
+#quiz-stats {
+  display: flex;
+  gap: 3rem;
+  width: 70%;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #000;
+}
+
+#quiz-stats p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+#quiz-stats .percent {
+  font-size: 2.5rem;
+  font-weight: bold;;
+}
+
+#quiz-stats .bracket {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #000;
+  letter-spacing: 0.1rem;
+}
+
+#quiz-evaluation ol {
+  list-style: none;
+  margin: 2rem auto;
+  width: 70%;
+  padding: 0;
+  text-align: center;
+}
+
+#quiz-evaluation li {
+  margin: 2rem 0;
+}
+
+#quiz-evaluation h3 {
+  font-size: 1rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+#quiz-evaluation .question-text {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  color: #30273a;
+}
+
+#quiz-evaluation .code-block {
+  margin-bottom: 0.5rem;
+}
+
+#quiz-evaluation .code-block span {
+  text-align: left;
+}
+
+#quiz-evaluation .user-answer {
+  margin: 0.25rem 0;
+  font-weight: bold;
+  color: #251e2f;
+}
+
+#quiz-evaluation .correct {
+  color: #21b05e;
+}
+
+#quiz-evaluation .wrong {
+  color: #f93181;
+}
+
+#quiz-evaluation .skipped {
+  color: #f58835;
+}
+
+#quiz-evaluation .user-answer.skipped {
+  font-style: italic;
 }

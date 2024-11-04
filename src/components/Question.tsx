@@ -68,7 +68,7 @@ const Question: React.FC<QuestionInterface> = ({
             />
             <h2>{`${activeQuesIndex + 1}. ${questionObj.question}`}</h2>
             {questionObj.is_code_block ? 
-                <div className='code-block'>
+                <div id='code-block'>
                     <CodeBlock 
                         text={questionObj.code_block}
                         language={'jsx'}
