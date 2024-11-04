@@ -61,7 +61,11 @@ const Question: React.FC<QuestionInterface> = ({
 
     return (
         <div id='question'>
-            <QuestionTimer timeout={10000} onTimeout={onSkip} />
+            <QuestionTimer 
+                timeout={10000} 
+                userAnsweredIndex={selectedOptionData.answerIndex} 
+                onTimeout={onSkip} 
+            />
             <h2>{`${activeQuesIndex + 1}. ${questionObj.question}`}</h2>
             {questionObj.is_code_block ? 
                 <div className='code-block'>
