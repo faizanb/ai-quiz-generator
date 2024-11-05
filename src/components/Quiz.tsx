@@ -7,8 +7,8 @@ const Quiz: React.FC<{quizData: any}> = (props) => {
     const [userAnwersIndex, setAnswersIndex] = useState<number[]>([]);
     const activeQuesIndex = userAnwersIndex.length;
 
-    const { quizData } = props;
-    const isQuizCompleted = activeQuesIndex === quizData.length;
+    const { quizData: {questions} } = props;
+    const isQuizCompleted = activeQuesIndex === questions.length;
 
     const handleUserSelection = useCallback((answerIndex: number) => {
         setAnswersIndex((prevAnswerIndex: number[]) => ([...prevAnswerIndex, answerIndex]));
@@ -16,12 +16,12 @@ const Quiz: React.FC<{quizData: any}> = (props) => {
 
     const handleAnswerSkipped = useCallback(() => handleUserSelection(-1), [handleUserSelection]);
     
-    const questionObj = quizData[activeQuesIndex];
+    const questionObj = questions[activeQuesIndex];
 
     if(isQuizCompleted) {
         return (
             <Evaluation 
-                quizData={quizData}
+                quizData={questions}
                 userAnwersIndex={userAnwersIndex}
             />
         );

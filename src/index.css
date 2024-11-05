@@ -50,6 +50,50 @@ header h1 {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }
 
+#quiz-select-hd {
+  margin: 0;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+#quiz-select {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3e3e52;
+}
+
+#quiz-select li {
+  display: flex;
+  flex: 0 0 33.3333%;
+}
+
+#quiz-select button {
+  all: unset;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border: 0.1rem solid #3e3e52;
+  border-radius: 10px;
+  margin: 0.6rem;
+  background: #f5f5e6;
+  width: 100%;
+    
+}
+
+#quiz-select button:hover,
+#quiz-select button:focus {
+  background: #3e3e52;
+  color: #f5f5e6;
+  border: 0.1rem solid #f5f5e6;
+}
+
 #quiz-wrap {
   background-color: #f5f5e6;
   width: 80%;
