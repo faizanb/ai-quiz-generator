@@ -304,3 +304,13 @@ header h1 {
 #quiz-evaluation .user-answer.skipped {
   font-style: italic;
 }
+
+#quiz-evaluation .answer-label {
+  color: #9e5ef8;
+}
+
+#quiz-evaluation .correct-answer {
+  margin: 0.25rem 0;
+  font-weight: bold;
+  color: #21b05e;
+}

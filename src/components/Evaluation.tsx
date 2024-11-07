@@ -36,23 +36,26 @@ const Evaluation: React.FC<EvaluationInterface> = ({
             </div>
             <ol>
                 {userAnwersIndex.map((answerIndex, index) => {
+                    const questionObj = quizData[index];
                     let answerClass = 'user-answer';
+                    let isCorrectAnswered = false;
                     if(answerIndex === -1) {
                         answerClass += ' skipped';
-                    } else if(answerIndex === quizData[index].answer_index) {
+                    } else if(answerIndex === questionObj.answer_index) {
                         answerClass += ' correct';
+                        isCorrectAnswered = true;
                     } else {
                         answerClass += ' wrong';
                     }
                     return (
-                        <li key={quizData[index].question}>
+                        <li key={questionObj.question}>
                             <h3>{index + 1}</h3>
                             <div className='question'>
-                                <p className='question-text'>{quizData[index].question}</p>
-                                {quizData[index].is_code_block ? 
+                                <p className='question-text'>{questionObj.question}</p>
+                                {questionObj.is_code_block ? 
                                     <div className='code-block'>
                                         <CodeBlock 
-                                            text={quizData[index].code_block}
+                                            text={questionObj.code_block}
                                             language={'jsx'}
                                             showLineNumbers={true}
                                             theme={dracula}
@@ -62,8 +65,19 @@ const Evaluation: React.FC<EvaluationInterface> = ({
                                 }
                             </div>
                             <p className={answerClass}>
-                                {answerIndex !== -1 ? quizData[index].options[answerIndex] : 'Skipped'}
+                                {answerIndex !== -1 ? <>
+                                    <span className='answer-label'>Given Answer: </span>
+                                    <span>{questionObj.options[answerIndex]}</span>
+                                </> 
+                                : 'Skipped'}
                             </p>
+                            { !isCorrectAnswered && <p className='correct-answer'>
+                                {<>
+                                    <span className='answer-label'>Correct Answer: </span>
+                                    <span>{questionObj.options[questionObj.answer_index]}</span>
+                                </>
+                                }
+                            </p> }
                         </li>
                     );
                 })}
