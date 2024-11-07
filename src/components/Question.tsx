@@ -18,6 +18,12 @@ const Question: React.FC<QuestionInterface> = ({
     onSkip
 }) => {
 
+    let timeout: number = 10000;
+    if(questionObj?.difficulty === 'medium') {
+        timeout = 20000;
+    } else if(questionObj?.difficulty === 'hard') {
+        timeout = 30000;
+    }
     const [selectedOptionData, setSelectedOptionData] = useState<{
         answerIndex: number | null,
         isCorrect: boolean | null
@@ -62,7 +68,7 @@ const Question: React.FC<QuestionInterface> = ({
     return (
         <div id='question'>
             <QuestionTimer 
-                timeout={10000} 
+                timeout={timeout} 
                 userAnsweredIndex={selectedOptionData.answerIndex} 
                 onTimeout={onSkip} 
             />
