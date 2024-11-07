@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import OpenAI from 'openai';
 
 import Header from './components/Header';
+import Loader from './components/Loader';
 import QuizSelect from './components/QuizSelect';
-import Quiz from './components/Quiz';
 // import DUMMY_RESPONSE_JSON from './components/response.json';
+
+const Quiz = lazy(() => import('./components/Quiz'));
 
 import './App.css';
 
@@ -25,7 +27,7 @@ const generateQuiz = async (tech: Array<string>): Promise<string | null> => {
         "content": [
           {
             "type": "text",
-            "text": `Generate 10 multiple choice questions on ${tech[0]}. Should contain both theory and output based questions. Should have 3 easy, 4 medium and 3 difficult questions. Should return JSON array of objects with each object having question, options, difficulty, answer_index and is_code_block. code_block should be a separate key with line breaks if is_code_block is true. answer_index should be index from options array.`
+            "text": `Generate 10 multiple choice questions on ${tech[0]}. Should contain both theory and output based questions. Should have 3 easy, 4 medium and 3 difficult questions. Should return JSON array of objects with each object having question, options, difficulty, answer_index and is_code_block. code_block should be a separate key with line breaks if is_code_block is true. question key should only contain text based question. if there is code block, send it in code_block key. answer_index should be index from options array.`
           }
         ]
       },
@@ -67,13 +69,20 @@ function App() {
   return (
     <>
       <Header />
-      {!tech && 
-        <QuizSelect onSelect={setTech} />
-      }
-      {quizData && 
-        <main id="quiz-wrap">
-          <Quiz quizData={quizData}/>
-      </main>}
+      <main id="main-content">
+        {!tech && 
+          <QuizSelect onSelect={setTech} />
+        }
+        {tech?.length 
+          && !quizData
+          && <Loader />
+        }
+        {quizData && 
+          <div id="quiz-wrap">
+            <Quiz quizData={quizData}/>
+          </div>
+        }
+      </main>
     </>
   )
 }
