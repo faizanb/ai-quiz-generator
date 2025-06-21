@@ -31,7 +31,7 @@ A React + TypeScript app that generates multiple-choice quizzes using OpenAI's G
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/ai-quiz-generator.git
+git clone https://github.com/faizanb/ai-quiz-generator.git
 cd ai-quiz-generator
 npm install
 ```
