@@ -97,7 +97,6 @@ header h1 {
   margin: 0.6rem;
   background: #f5f5e6;
   width: 100%;
-    
 }
 
 #quiz-select button:hover,
@@ -234,7 +233,7 @@ header h1 {
 
 #quiz-stats .percent {
   font-size: 2.5rem;
-  font-weight: bold;;
+  font-weight: bold;
 }
 
 #quiz-stats .bracket {
@@ -254,6 +253,11 @@ header h1 {
 
 #quiz-evaluation li {
   margin: 2rem 0;
+}
+
+#quiz-evaluation li:not(:last-child) {
+  border-bottom: 2px solid #000;
+  padding-bottom: 1.5rem;
 }
 
 #quiz-evaluation h3 {
@@ -313,4 +317,9 @@ header h1 {
   margin: 0.25rem 0;
   font-weight: bold;
   color: #21b05e;
+}
+
+#quiz-evaluation .ans-explanation {
+  margin: 0.25rem 0;
+  color: #30273a;
 }
