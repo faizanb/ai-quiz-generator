@@ -9,7 +9,7 @@ A React + TypeScript app that generates multiple-choice quizzes using OpenAI's G
 - **Difficulty levels**: easy, medium, difficult
 - **Timer** for each question
 - **Immediate feedback** on answers
-- **Quiz evaluation** with stats and correct answers
+- **Quiz evaluation** with stats correct answers, and explanation
 - **Responsive UI** with syntax-highlighted code
 
 ## Tech Stack
