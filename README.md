@@ -94,10 +94,10 @@ npm run proxy
 In a new terminal, start the frontend:
 
 ```bash
-npm run dev
+npm run preview
 ```
 
-Visit [http://localhost:5173](http://localhost:5173).
+Visit [http://localhost:4173/tequiz/](http://localhost:4173/tequiz/).
 
 ## Usage
 
